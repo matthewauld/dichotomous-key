@@ -25,12 +25,12 @@ def play_game(pop):
 def next_question(pop):
 	"""
 	Give the next trait that should be asked about, to ensure fewest
-	number of questions needed to win.
+	number of questions needed.
 
 	Args:
 		pop (dict): A dictionary in the form {'name':[list of traits]}
 	Returns:
-		trait (any): The ideal trait to ask the player
+		trait (any): The ideal trait to ask
 	"""
 	traits = []
 	half_pop_size = len(pop)/2
@@ -84,11 +84,11 @@ def isolate_trait(pop, trait):
 
 def ask_question(prompt):
 	"""
-	Ask player a question.
+	Ask user a question.
 	"""
 	user_input = input(prompt)
 	while user_input.upper() not in ['YES', 'NO']:
-		print("- Please answer using either yes or no. ", end = '')
+		print("- Please answer using either yes or no.", end = "")
 		user_input = input()
 	return user_input.lower()
 
@@ -97,25 +97,6 @@ def make_a_guess(object):
 	Makes a guess
 	"""
 	print(object)
-	_ = input("- Was this the correct answer?")
+	return input("- Was this the correct answer?")
+
 	exit()
-
-test_population={ 'Caelan':['eyepatch','glasses','hat','pipe','tie'],
-'Dorian':['eyepatch','hair','hat','pipe','tie'],
-'River':['eyepatch','hair','hat','pipe','tattoo','tie'],
-'Easton':['earring','eyepatch','glasses','hair','hat','pipe', 'tie'],
-'Jesse':['earring', 'eyepatch', 'glasses','hair','pipe'],
-'Eli':['glasses'],
-'Glenn':['earring','eyepatch','glasses','hair','hat','tie'],
-'Ray':['earring','eyepatch','glasses','hair','hat','moustache','pipe', 'tattoo','tie'],
-'Max':['hair','hat','pipe','tie'],
-'Adrian':['earring'],
-'Andy':['earring','tie'],
-'Brooklyn':['earring','eyepatch','glasses','hair','hat','moustache','pipe'],
-'Hudson':['eyepatch','glasses','hair','hat','pipe','tie'],
-'Jordan':['eyepatch','glasses','hair','hat','moustache','pipe','tie'],
-'Harley':['earring','eyepatch','glasses','hair','hat','pipe'],
-'Ari':[]}
-
-if __name__ == '__main__':
-	play_game(test_population)
